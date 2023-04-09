@@ -22,7 +22,7 @@ import { deviceService } from '../services/device.service';
       
       @Get('id/:id')
       finddeviceById(@Param('id', ParseIntPipe) id: number) {
-        return this.deviceService.finddeviceById(id);
+        return this.deviceService.findClientBydevice(id);
       }
   
       @Post('create')

@@ -19,7 +19,7 @@ export class appcontrol_humidity {
     nullable: false,
     default: 0,
   })
-  humidity: number;
+  value: number;
 
   @ManyToOne(() => device, (device) => device.device_id)
   device_id: device

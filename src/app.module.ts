@@ -4,11 +4,13 @@ import { UsersModule } from './users/users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import {TypeOrmModule} from '@nestjs/typeorm';
 import entities from 'typeors';
+import { AppService } from 'app.service';
 import { actuatorModule } from './actuator/actuator.module';
 import { MqttsModule } from './mqtt/mqtt/mqtt.module';
 import { sensorModule } from './sensor/sensor/sensor.module';
 import { initialrModule } from './initial/initial/initial.module';
 import { AppControlModule } from './app_control/app_control.module';
+import { AppController } from 'app.controller';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -31,7 +33,7 @@ import { AppControlModule } from './app_control/app_control.module';
     AppControlModule,
     MqttsModule
    ],
-  controllers: [],
-  providers: [],
+  controllers: [AppController],
+  providers: [AppService ],
 })
 export class AppModule {}

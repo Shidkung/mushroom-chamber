@@ -5,7 +5,7 @@ export class Createapp_control_humidityDto {
    
 
     @IsNotEmpty()
-    humidity: number
+    value: number
 
     @IsNotEmpty()
     device_id: device

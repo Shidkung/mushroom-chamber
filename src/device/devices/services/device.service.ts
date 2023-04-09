@@ -23,8 +23,9 @@ export class deviceService {
     }
   }
    
-  finddeviceById(id: number) {
-    return this.deviceRepository.findOne({where:{device_id:id}});
+ async findClientBydevice(id: number) {
+    const Client = await this.deviceRepository.findOne({where:{device_id:id}});
+    return Client
   }
 
  async finddeviceById_forclient(id: string) {

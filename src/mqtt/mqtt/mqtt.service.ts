@@ -13,7 +13,7 @@ export class MqttsService implements OnModuleInit {
   private mqttClient;
 
   onModuleInit() {
-    const host = 'broker.hivemq.com'
+    const host = 'a1l6frsfgl0yj3-ats.iot.ap-southeast-1.amazonaws.com'
     const port = '8883'
     const clientId = 'MS_Server';
     const topic = "topic";
@@ -39,7 +39,6 @@ export class MqttsService implements OnModuleInit {
     this.mqttClient.on("error", function () {
       error("Error in connecting to CloudMQTT");
     });
-
     this.subscribe("mc/v1/#")
 }
 publish(topic: string, payload: string){
@@ -71,8 +70,6 @@ private subscribe(topic:string){
         case "initial":
           await this.initialService.updateInitial(messagesJS)
           break
-        default:
-          console.error("No this path")
       }
     });
     }; 
