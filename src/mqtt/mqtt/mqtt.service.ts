@@ -6,17 +6,21 @@ import { actuatorService } from "src/actuator/actuator/service/actuator.service"
  import { deviceService } from "src/device/devices/services/device.service";
 import { sensorService } from "src/sensor/sensor/service/sensor.service";
 import { initialService } from "src/initial/initial/service/initial.service";
+import { ConfigService } from "@nestjs/config";
 @Injectable()
 export class MqttsService implements OnModuleInit {
   constructor(private readonly deviceService: deviceService,private readonly actuatorService: actuatorService,
-    private readonly  sensorService :  sensorService ,private readonly  initialService : initialService) {}
+    private readonly  sensorService :  sensorService ,private readonly  initialService : initialService,private readonly configService: ConfigService) {}
   private mqttClient;
 
   onModuleInit() {
-    const host = 'a1l6frsfgl0yj3-ats.iot.ap-southeast-1.amazonaws.com'
-    const port = '8883'
+    const host = this.configService.get<string>('host')
+    const port = this.configService.get<string>('port')
+    const cafile =this.configService.get<string>('cafile')
+    const cert = this.configService.get<string>('cert')
+    const key =this.configService.get<string>('key')
     const clientId = 'MS_Server';
-    const topic = "topic";
+    const topic = this.configService.get<string>('topic');
     const connectUrl = `mqtt://${host}:${port}`;
 
     this.mqttClient = mqtt.connect(connectUrl, {
@@ -26,9 +30,9 @@ export class MqttsService implements OnModuleInit {
       username: '',
       password: '',
       reconnectPeriod: 1000,
-       ca:fs.readFileSync('C:/Users/pitpi/OneDrive/เดสก์ท็อป/mushroom_chamber/MS_Server/AmazonRootCA1.pem'),
-       cert:fs.readFileSync('C:/Users/pitpi/OneDrive/เดสก์ท็อป/mushroom_chamber/MS_Server/certificate.pem.crt'),
-        key:fs.readFileSync('C:/Users/pitpi/OneDrive/เดสก์ท็อป/mushroom_chamber/MS_Server/private.pem.key')
+       ca:fs.readFileSync(cafile),
+       cert:fs.readFileSync(cert),
+        key:fs.readFileSync(key)
     });
 
     this.mqttClient.on("connect", function () {
@@ -39,7 +43,7 @@ export class MqttsService implements OnModuleInit {
     this.mqttClient.on("error", function () {
       error("Error in connecting to CloudMQTT");
     });
-   this.subscribe("mc/v1/#")
+   this.subscribe(topic)
 }
 publish(topic: string, payload: string){
     info(`Publishing to ${topic}`);
