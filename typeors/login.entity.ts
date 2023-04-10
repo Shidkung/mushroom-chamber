@@ -1,7 +1,6 @@
 import { Column, Entity, PrimaryGeneratedColumn ,CreateDateColumn} from 'typeorm';
-
 @Entity()
-export class Users {
+export class login {
   @PrimaryGeneratedColumn({
     type: 'bigint',
     name: 'user_id',
@@ -14,22 +13,10 @@ export class Users {
   created_at: Date;
 
   @Column({
-    nullable: false,
-    default: '',
-  })
-  username: string;
-
-  @Column({
     name: 'email_address',
     nullable: false,
     default: '',
   })
   email: string;
-
-  @Column({
-    nullable: false,
-    default: '',
-  })
-  password: string;
 
 }

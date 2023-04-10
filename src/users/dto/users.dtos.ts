@@ -8,7 +8,6 @@ export class CreateUsersDto {
   @IsNotEmpty()
   @MinLength(8)
   password: string;
-
   @IsNotEmpty()
   @IsEmail()
   email: string;

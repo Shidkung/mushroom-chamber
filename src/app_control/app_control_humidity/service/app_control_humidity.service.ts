@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { appcontrol_humidity, device} from 'typeors';
 import { Repository } from 'typeorm';
-import { Createapp_control_humidityDto } from 'src/app_control/dto/app_control_humidity.dtos';
+import { Createapp_control_humidityDto } from '../dto/app_control_humidity.dtos';
 import { MqttsService } from 'src/mqtt/mqtt/mqtt.service';
 import { deviceService } from 'src/device/devices/services/device.service';
 @Injectable()

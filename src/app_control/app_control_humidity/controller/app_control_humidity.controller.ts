@@ -8,7 +8,7 @@ import {
     UsePipes,
     ValidationPipe,
     } from '@nestjs/common';
-import { Createapp_control_humidityDto } from 'src/app_control/dto/app_control_humidity.dtos';
+import { Createapp_control_humidityDto } from '../dto/app_control_humidity.dtos';
 import { app_control_humidityService } from '../service/app_control_humidity.service';
 import { device } from 'typeors';
     

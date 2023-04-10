@@ -29,9 +29,6 @@ import {
       @Post('create')
       @UsePipes(ValidationPipe)
         async createUsers(@Body() createUserDto: CreateUsersDto) {
-        const saltOrRounds = 10;
-        const hashpass =  await bcrypt.hash(createUserDto.password,saltOrRounds)
-        createUserDto.password = hashpass
-        return this.userService.createUser(createUserDto);
+        return this.userService.register(createUserDto);
       }
     }

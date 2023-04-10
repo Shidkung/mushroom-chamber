@@ -6,6 +6,7 @@ import { Users } from 'typeors';
 @Module({
   imports:[TypeOrmModule.forFeature([Users])],
   controllers: [UsersController],
-  providers: [UsersService]
+  providers: [UsersService],
+  exports:[UsersService]
 })
 export class UsersModule {}

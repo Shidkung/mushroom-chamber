@@ -39,7 +39,7 @@ export class MqttsService implements OnModuleInit {
     this.mqttClient.on("error", function () {
       error("Error in connecting to CloudMQTT");
     });
-    this.subscribe("mc/v1/#")
+   this.subscribe("mc/v1/#")
 }
 publish(topic: string, payload: string){
     info(`Publishing to ${topic}`);
@@ -47,10 +47,11 @@ publish(topic: string, payload: string){
     return `Publishing to ${topic}`;
   }
 
+
+
 private subscribe(topic:string){
     this.mqttClient.subscribe(topic)
     this.mqttClient.on('message',async (topic,message) => {
-      console.log(`${message}`);
       const messages = message.toString() 
       const messagesJS = JSON.parse(messages)
       const sep = topic.split("/")
@@ -71,6 +72,7 @@ private subscribe(topic:string){
           await this.initialService.updateInitial(messagesJS)
           break
       }
+      
     });
     }; 
 
