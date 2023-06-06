@@ -19,10 +19,8 @@ export class MqttsService implements OnModuleInit {
     const cafile =this.configService.get<string>('cafile')
     const cert = this.configService.get<string>('cert')
     const key =this.configService.get<string>('key')
-    const clientId = 'MS_Server';
-    const topic = this.configService.get<string>('topic');
+    const topic = this.configService.get<string>('topic');const clientId = 'MS_Server';
     const connectUrl = `mqtt://${host}:${port}`;
-
     this.mqttClient = mqtt.connect(connectUrl, {
       clientId,
       clean: true,

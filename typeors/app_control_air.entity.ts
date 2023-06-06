@@ -1,7 +1,7 @@
-import { Column, Entity, PrimaryGeneratedColumn ,ManyToOne,CreateDateColumn, Double } from 'typeorm';
+import { Column, Entity, PrimaryGeneratedColumn ,ManyToOne,CreateDateColumn } from 'typeorm';
 import { device } from './device.entity';
 @Entity()
-export class sensor {
+export class appcontrol_air {
   @PrimaryGeneratedColumn({
     type: 'bigint',
     name: 'id',
@@ -15,22 +15,20 @@ export class sensor {
 
 
   @Column({
-    name: 'humidity',
-    type:'decimal',
+    name: 'gap',
     nullable: false,
     default: 0,
   })
-  humidity:number;
+  gap: number;
 
   @Column({
-    name: 'temp',
-    type:'decimal',
+    name: 'duration',
     nullable: false,
     default: 0,
   })
-  temp: number;
+  duration: number;
 
-  @ManyToOne(()=>device,(device)=>device.device_id)
-  device_id:device
+  @ManyToOne(() => device, (device) => device.device_id)
+  device_id: device
    
 }

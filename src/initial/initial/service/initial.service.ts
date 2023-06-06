@@ -9,8 +9,8 @@ export class initialService {
   constructor(
     @InjectRepository(initial) private readonly initialRepository: Repository<initial>,
   ) {}
-  find(device_id:device){
-    return this.initialRepository.findOne({where:{device_id:device_id}})
+ async find(device_id:device){
+    return await this.initialRepository.findOne({where:{device_id:device_id},order:{id:'DESC'}})
   }  
   updateInitial(CreateinitialDto : CreateinitialDto ) {
     const newinitial = this.initialRepository.create(CreateinitialDto);

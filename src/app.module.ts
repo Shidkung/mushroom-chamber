@@ -9,6 +9,9 @@ import { MqttsModule } from './mqtt/mqtt/mqtt.module';
 import { AppControlModule } from './app_control/app_control.module';
 import { AppController } from 'app.controller';
 import { AuthModule } from './auth/auth.module';
+import { sensorModule } from './sensor/sensor/sensor.module';
+import { initialrModule } from './initial/initial/initial.module';
+import { actuatorModule } from './actuator/actuator.module';
 @Module({
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
@@ -30,7 +33,10 @@ import { AuthModule } from './auth/auth.module';
     deviceModule,
     AppControlModule,
     MqttsModule,
-    AuthModule
+    AuthModule,
+    sensorModule,
+    initialrModule,
+    actuatorModule
    ],
   controllers: [AppController],
   providers: [AppService ],

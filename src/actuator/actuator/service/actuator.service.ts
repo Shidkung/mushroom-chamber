@@ -16,7 +16,7 @@ export class actuatorService {
     return this.actuatorRepository.save(newact);
   }
  async finddeviceById(id: device) {
-   return  await this. actuatorRepository.findOne({where:{device_id:id}});
+   return  await this. actuatorRepository.findOne({where:{device_id:id},order:{actuator_id:'DESC'}});
   }
   getAct(){
     return this. actuatorRepository.find()

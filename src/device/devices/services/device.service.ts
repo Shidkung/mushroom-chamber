@@ -32,6 +32,7 @@ export class deviceService {
     const Client = await this.deviceRepository.findOne({where:{client_id:id}});
     return  Client.device_id
   }
+  
   getDevice(){
     return this.deviceRepository.find()
   }

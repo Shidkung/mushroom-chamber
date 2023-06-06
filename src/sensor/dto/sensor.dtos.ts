@@ -1,4 +1,5 @@
 import { IsNotEmpty} from "class-validator";
+import { Double } from "typeorm";
 import { device } from "typeors";
 
 export class CreatesensorDto {
