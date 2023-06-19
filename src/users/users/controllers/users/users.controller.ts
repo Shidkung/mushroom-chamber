@@ -8,7 +8,7 @@ import {
     UsePipes,
     ValidationPipe,
     } from '@nestjs/common';
-    import { CreateUsersDto } from 'src/users/dto/Users.dtos';
+    import { CreateUsersDto } from 'src/users/dto/users.dtos';
     import { UsersService } from 'src/users//users/service/users/users.service';
     import * as bcrypt from 'bcrypt';
     @Controller('users')
