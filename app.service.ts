@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { Injectable } from '@nestjs/common/decorators';
 import { deviceService } from 'src/device/devices/services/device.service';
 import { actuatorService } from 'src/actuator/actuator/service/actuator.service';
 import { sensorService } from 'src/sensor/sensor/service/sensor.service';
