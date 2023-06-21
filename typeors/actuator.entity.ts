@@ -17,25 +17,25 @@ export class Actuator {
      nullable: false,
      default: 0,
    })
-   light_status: number;
+   light: number;
 
   @Column({
     nullable: false,
     default: 0,
   })
-  air_status: number;
+  air: boolean;
 
    @Column({
     nullable: false,
     default: 0,
   })
-  power_status: number;
+  temperature: boolean;
 
   @Column({
     nullable: false,
     default: 0,
   })
-  humitemp_status: number;
+  humi: boolean;
 
   @ManyToOne(()=>device,(device)=>device.device_id)
   device_id:device

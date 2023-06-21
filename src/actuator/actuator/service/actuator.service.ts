@@ -13,6 +13,7 @@ export class actuatorService {
   
  async sendAct(CreatedactuatorDto: CreatedactuatorDto) {
     const newact = this. actuatorRepository.create(CreatedactuatorDto);
+    console.log(newact)
     return this.actuatorRepository.save(newact);
   }
  async finddeviceById(id: device) {

@@ -11,8 +11,7 @@ interface show {
   temperature: number;
   humidity: number;
   light: number;
-  air:number;
-  power:number;
+  air:boolean;
   version: string;
 }
 
@@ -39,9 +38,8 @@ export class AppService {
         device_id: find_id.device_id,
       temperature: sensorDevice.temperature,
       humidity: sensorDevice.humi,
-      light: actuatordevice.light_status ,
-      air:actuatordevice.air_status,
-      power: actuatordevice.power_status,
+      light: actuatordevice.light ,
+      air:actuatordevice.air,
       version: initialdevice.version
       };
      // console.log(Shows)

@@ -6,13 +6,13 @@ export class CreatedactuatorDto {
     light_status: number
 
     @IsNotEmpty()
-    air_status: number
+    air_status: boolean
 
     @IsNotEmpty()
-    power_status: number
+    power_status: boolean
 
     @IsNotEmpty()
-    humitemp_status: number
+    humitemp_status: boolean
 
     @IsNotEmpty()
     device_id: device
