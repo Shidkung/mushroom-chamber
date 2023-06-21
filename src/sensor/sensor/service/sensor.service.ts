@@ -15,6 +15,7 @@ export class sensorService {
       }
   updatesensor(CreatesensorDto : CreatesensorDto ) {
     const newser = this.sensorRepository.create(CreatesensorDto);
+    console.log(newser)
     return this.sensorRepository.save(newser);
   }
 }

@@ -15,20 +15,20 @@ export class sensor {
 
 
   @Column({
-    name: 'humidity',
+    name: 'humi',
     type:'decimal',
     nullable: false,
     default: 0,
   })
-  humidity:number;
+  humi:number;
 
   @Column({
-    name: 'temp',
+    name: 'temperature',
     type:'decimal',
     nullable: false,
     default: 0,
   })
-  temp: number;
+  temperature: number;
 
   @ManyToOne(()=>device,(device)=>device.device_id)
   device_id:device

@@ -37,8 +37,8 @@ export class AppService {
     //  console.log(actuatordevice)
       const Shows : show = {
         device_id: find_id.device_id,
-      temperature: sensorDevice.temp,
-      humidity: sensorDevice.humidity,
+      temperature: sensorDevice.temperature,
+      humidity: sensorDevice.humi,
       light: actuatordevice.light_status ,
       air:actuatordevice.air_status,
       power: actuatordevice.power_status,

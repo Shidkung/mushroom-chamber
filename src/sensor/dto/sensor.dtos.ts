@@ -6,10 +6,10 @@ export class CreatesensorDto {
   
 
   @IsNotEmpty()
-  temp: number;
+  temperature: number;
 
   @IsNotEmpty()
-  humidity: number;
+  humi: number;
 
   @IsNotEmpty()
   device_id: device;

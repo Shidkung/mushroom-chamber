@@ -65,10 +65,11 @@ private subscribe(topic:string){
       switch(path_send){
         case "status":
           await this.actuatorService.sendAct(messagesJS)
-          console.log(messagesJS)
+       
           break;
         case "value":
           await this.sensorService.updatesensor(messagesJS)
+          
           break;
         case "initial":
           await this.initialService.updateInitial(messagesJS)
