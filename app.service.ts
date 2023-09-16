@@ -39,7 +39,7 @@ export class AppService {
       temperature: sensorDevice.temperature,
       humidity: sensorDevice.humi,
       light: actuatordevice.light ,
-      air:actuatordevice.air,
+      air:actuatordevice.air,  
       version: initialdevice.version
       };
      // console.log(Shows)
